@@ -23,5 +23,7 @@ get_object_response = s3.get_object(Bucket='kholmy_gallery', Key='ObjectName2')
 print(get_object_response['Body'].read())
 
 # Удаление нескольких объектов
-# objects_to_delete = [{'Key': 'ObjectName1'}, {'Key': 'ObjectName2'}]
-# s3.delete_objects(Bucket='kholmy_gallery', Delete={'Objects': objects_to_delete})
+objects_to_delete = [{'Key': 'ObjectName1'}, {'Key': 'ObjectName2'}]
+s3.delete_objects(Bucket='kholmy_gallery', Delete={'Objects': objects_to_delete})
+
+
