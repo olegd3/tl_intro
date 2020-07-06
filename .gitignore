@@ -1,0 +1,9 @@
+*.exe
+*.out
+*.app
+/vnv/
+/venv/
+/.venv/
+/.idea/
+/.vscode/
+/images/
