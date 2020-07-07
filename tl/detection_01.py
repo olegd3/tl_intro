@@ -6,21 +6,24 @@ import config_detection
 
 execution_path = os.getcwd()
 source_images = config_detection.SOURCE_PATH
-print(source_images)
+model_name = "resnet50_coco_best_v2.0.1.h5"
 files = os.listdir(source_images)
+print(source_images)
+
 detector = ObjectDetection()
-
-# detector.setModelTypeAsYOLOv3()
-# detector.setModelPath(os.path.join(execution_path , "yolo.h5"))
-
 detector.setModelTypeAsRetinaNet()
-detector.setModelPath(os.path.join(execution_path , "resnet50_coco_best_v2.0.1.h5"))
-
-
+detector.setModelPath(os.path.join(execution_path , model_name))
 detector.loadModel()
-detections = detector.detectObjectsFromImage(input_image=os.path.join(source_images, files[302]), 
-                                             output_image_path='/home/tl/tl_intro/tl/imagenew5.jpeg', 
+print(f'model --> {model_name} was loaded')
+# detections = detector.detectObjectsFromImage(input_image=os.path.join(source_images, files[302]), 
+#                                              output_image_path='/home/tl/tl_intro/tl/imagenew5.jpeg', 
+#                                              minimum_percentage_probability=50)
+
+returned_image, detections = detector.detectObjectsFromImage(input_image=os.path.join(source_images, files[302]), 
+                                             output_type="array", 
                                              minimum_percentage_probability=50)
+
+# detector.detectObjectsFromImage(input_image=”image.jpg”, output_type=”array”, minimum_percentage_probability=30)
 
 for eachObject in detections:
     print(eachObject["name"] , " : ", eachObject["percentage_probability"], " : ", eachObject["box_points"] )
