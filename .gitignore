@@ -1,6 +1,9 @@
+.gitignore
 *.exe
+*.jpg
 *.out
 *.app
+*.h5
 /vnv/
 /venv/
 /.venv/
