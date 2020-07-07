@@ -1,11 +1,16 @@
 .gitignore
 *.exe
 *.jpg
+*.jpeg
 *.out
 *.app
 *.h5
 /vnv/
+/vnv*/
+/*vnv/
 /venv/
+/*venv/
+/venv*/
 /.venv/
 /.idea/
 /.vscode/
