@@ -5,7 +5,7 @@ import config_detection
 source_images = config_detection.SOURCE_PATH
 
 
-class MachinDetection(ObjectDetection):
+class BaseDetection(ObjectDetection):
     def __init__(self):
         ObjectDetection.__init__(self)
 
@@ -31,5 +31,5 @@ files = os.listdir(source_images)
 files = sorted(files, reverse=True)
 files_for_detection = [os.path.join(source_images, files[i]) for i in range(len(files)) if 290<i<300]
 print(files_for_detection)
-det = MachinDetection()
+det = BaseDetection()
 det.get_objects_list(files_for_detection)
