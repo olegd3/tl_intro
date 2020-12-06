@@ -19,17 +19,20 @@ class BaseDetection(ObjectDetection):
         detector.setModelPath(os.path.join(execution_path , self.model_name))
         detector.loadModel()
         print(f'model --> {self.model_name} was loaded')
+        print(f'Image List lenght --> {len(self.input_image_list)} ')
         for f in input_image_list:
             returned_image, detections = detector.detectObjectsFromImage(f, output_type="array", minimum_percentage_probability=50)
+            print(f'File name for det-n is {f}')
+            print("+++++++++++++++++++++++++++++++++++++++")
 
             for eachObject in detections:
                 print(eachObject["name"] , " : ", eachObject["percentage_probability"], " : ", eachObject["box_points"] )
-                print("--------------------------------")
+                print("----------------------------------------")
 
 
 files = os.listdir(source_images)
 files = sorted(files, reverse=True)
-files_for_detection = [os.path.join(source_images, files[i]) for i in range(len(files)) if 290<i<300]
+files_for_detection = [os.path.join(source_images, files[i]) for i in range(len(files)) if 0<i<300]
 print(files_for_detection)
 det = BaseDetection()
 det.get_objects_list(files_for_detection)

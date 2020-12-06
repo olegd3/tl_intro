@@ -1,1 +1,1 @@
-SOURCE_PATH = "/home/tl/images/kholmy/200626_kholmy"
+SOURCE_PATH = "/home/tl/images/200626_kholmy"
